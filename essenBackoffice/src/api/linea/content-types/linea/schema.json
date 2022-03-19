@@ -14,6 +14,12 @@
     "Title": {
       "type": "string",
       "maxLength": 40
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "line"
     }
   }
 }

@@ -36,6 +36,12 @@
         "images",
         "videos"
       ]
+    },
+    "line": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::linea.linea",
+      "inversedBy": "products"
     }
   }
 }
