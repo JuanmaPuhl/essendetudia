@@ -1,12 +1,14 @@
 import axios, { AxiosRequestConfig } from "axios"
+import qs from "qs"
 
 const { REACT_APP_STRAPI_BASE_URL, REACT_APP_STRAPI_TOKEN } = process.env
 
 declare type OptionalParameters = {
   headers?: { [key: string]: string }
-  body?: any
+  body?: { [key: string]: unknown }
+  fieldsToFetch?: string[]
 }
-export const api = axios.create({ baseURL: `${REACT_APP_STRAPI_BASE_URL}/api` })
+const api = axios.create({ baseURL: `${REACT_APP_STRAPI_BASE_URL}/api` })
 api.interceptors.request.use((config: AxiosRequestConfig) => {
   return new Promise((resolve) => {
     config.headers = {
@@ -17,10 +19,28 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
   })
 })
 
+const fetchSpecifiedFields = (fields: string[], endpoint: string) => {
+  const fieldsToShow = qs.stringify(
+    {
+      fields: fields,
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  )
+  endpoint.indexOf("?") === -1
+    ? (endpoint += `?${fieldsToShow}`)
+    : (endpoint += `&${fieldsToShow}`)
+  return endpoint
+}
+
 export const get = (
   endpoint: string,
   optionalParameters?: OptionalParameters,
 ) => {
+  if (optionalParameters?.fieldsToFetch) {
+    endpoint = fetchSpecifiedFields(optionalParameters.fieldsToFetch, endpoint)
+  }
   return api.get(endpoint)
 }
 
