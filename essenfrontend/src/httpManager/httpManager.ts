@@ -1,19 +1,29 @@
-import axios from "axios"
+import axios, { AxiosRequestConfig } from "axios"
 
-const baseUrl = "http://localhost:1337"
+const { REACT_APP_STRAPI_BASE_URL, REACT_APP_STRAPI_TOKEN } = process.env
 
 declare type OptionalParameters = {
   headers?: { [key: string]: string }
   body?: any
 }
+export const api = axios.create({ baseURL: `${REACT_APP_STRAPI_BASE_URL}/api` })
+api.interceptors.request.use((config: AxiosRequestConfig) => {
+  return new Promise((resolve) => {
+    config.headers = {
+      ...config.headers,
+      Authorization: `Bearer ${REACT_APP_STRAPI_TOKEN}`,
+    }
+    resolve(config)
+  })
+})
 
 export const get = (
   endpoint: string,
-  optionalParameters: OptionalParameters,
+  optionalParameters?: OptionalParameters,
 ) => {
-  const token = process.env.REACT_APP_STRAPI_TOKEN
-  console.log("token", token)
-  return axios.get(`${baseUrl}${endpoint}`, {
-    headers: { Authorization: "bearer " + token },
-  })
+  return api.get(endpoint)
+}
+
+export const getImageUrl = (imageUrl: string) => {
+  return `${REACT_APP_STRAPI_BASE_URL}${imageUrl}`
 }
