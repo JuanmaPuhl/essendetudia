@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lineas",
+  "info": {
+    "singularName": "linea",
+    "pluralName": "lineas",
+    "displayName": "Lineas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "maxLength": 40
+    }
+  }
+}
