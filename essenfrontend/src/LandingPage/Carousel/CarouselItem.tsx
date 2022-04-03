@@ -1,4 +1,3 @@
-import styled from "@emotion/styled"
 import { Button, Grid } from "@mui/material"
 import Image from "material-ui-image"
 export const CarouselItem = ({
@@ -27,7 +26,3 @@ export const CarouselItem = ({
     </Grid>
   )
 }
-
-const StyledContainer = styled.div`
-  background-color: #f00;
-`

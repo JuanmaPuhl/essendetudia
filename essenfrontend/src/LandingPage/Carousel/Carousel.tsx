@@ -1,4 +1,4 @@
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper"
+import { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation" // Navigation module
@@ -60,13 +60,5 @@ export const Carousel = () => {
     </Grid>
   )
 }
-
-const StyledContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f0f;
-  justify-content: center;
-  text-align: center;
-`
 
 const StyledSlider = styled(Swiper)``
