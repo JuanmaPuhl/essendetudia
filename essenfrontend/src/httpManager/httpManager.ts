@@ -7,6 +7,10 @@ declare type OptionalParameters = {
   headers?: { [key: string]: string }
   body?: { [key: string]: unknown }
   fieldsToFetch?: string[]
+  pagination?: {
+    page: number
+    pageSize: number
+  }
 }
 const api = axios.create({ baseURL: `${REACT_APP_STRAPI_BASE_URL}/api` })
 api.interceptors.request.use((config: AxiosRequestConfig) => {

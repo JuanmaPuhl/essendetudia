@@ -4,7 +4,7 @@
   "info": {
     "singularName": "header",
     "pluralName": "headers",
-    "displayName": "Imagenes",
+    "displayName": "Headers",
     "description": ""
   },
   "options": {
@@ -31,7 +31,7 @@
         "videos"
       ]
     },
-    "link": {
+    "url": {
       "type": "string"
     }
   }

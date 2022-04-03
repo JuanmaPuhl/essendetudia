@@ -15,15 +15,10 @@ export default function ProductCard({
   image: string
 }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, maxheight: 290, paddingBottom: 0 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={image}
-          alt="green iguana"
-        />
-        <CardContent>
+        <CardMedia component="img" height="140" image={image} alt={title} />
+        <CardContent sx={{ height: 150 }}>
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
