@@ -1,8 +1,8 @@
 import { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
-import "swiper/css/navigation" // Navigation module
-import "swiper/css/pagination" // Pagination module
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 import { CarouselItem } from "./CarouselItem"
 import styled from "@emotion/styled"
 import { Grid } from "@mui/material"
