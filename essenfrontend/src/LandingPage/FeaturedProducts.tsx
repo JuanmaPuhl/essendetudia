@@ -1,5 +1,5 @@
 import { Container, Typography } from "@material-ui/core"
-import { Grid } from "@mui/material"
+import { Grid, Button } from "@mui/material"
 import { useEffect, useState } from "react"
 import { get, getImageUrl } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
@@ -12,7 +12,7 @@ export const FeaturedProducts = () => {
       fieldsToFetch: ["Title", "ShortDescription"],
       pagination: {
         page: 1,
-        pageSize: 6,
+        pageSize: 8,
       },
     }).then((result) => {
       setProducts(result.data.data)
@@ -21,20 +21,17 @@ export const FeaturedProducts = () => {
 
   return (
     <Container>
-      <Typography variant="h5">Novedades</Typography>
-      <Grid
-        container
-        justifyContent="center"
-        alignContent="center"
-        alignItems="center"
-        spacing={2}
-        alignSelf="center"
-        justifyItems={"center"}
-        columns={12}
-        sx={{ backgroundColor: "blue", textAlign: "center" }}
-      >
+      <Grid container columns={12} marginTop="20px">
+        <Grid item md={11}>
+          <Typography variant="h5">Novedades</Typography>
+        </Grid>
+        <Grid item md={1}>
+          <Button>Ver todo</Button>
+        </Grid>
+      </Grid>
+      <Grid container spacing={1} columns={12} marginTop="5px">
         {products.map((product) => (
-          <Grid key={product.id} item md={4} xs={12} sm={6}>
+          <Grid key={product.id} item md={3} xs={12} sm={6}>
             <ProductCard
               key={product.id}
               title={product.attributes.Title}

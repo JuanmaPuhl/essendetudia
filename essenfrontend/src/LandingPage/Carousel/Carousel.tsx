@@ -35,8 +35,8 @@ export const Carousel = () => {
 
   return (
     <Grid container>
-      <Grid item md={2} xs={0}></Grid>
-      <Grid item md={8} xs={12}>
+      <Grid item md={0} xs={0}></Grid>
+      <Grid item md={12} xs={12}>
         <StyledSlider
           modules={[Navigation, Pagination]}
           slidesPerView={1}
@@ -72,9 +72,11 @@ export const Carousel = () => {
           )}
         </StyledSlider>
       </Grid>
-      <Grid item md={2} xs={0}></Grid>
+      <Grid item md={0} xs={0}></Grid>
     </Grid>
   )
 }
 
-const StyledSlider = styled(Swiper)``
+const StyledSlider = styled(Swiper)`
+  // height: 500px;
+`

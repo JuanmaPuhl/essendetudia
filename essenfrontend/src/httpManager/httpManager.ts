@@ -26,15 +26,37 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
 const fetchSpecifiedFields = (fields: string[], endpoint: string) => {
   const fieldsToShow = qs.stringify(
     {
-      fields: fields,
+      fields,
     },
     {
       encodeValuesOnly: true,
     },
   )
+  return appendToEndpoint(endpoint, fieldsToShow)
+}
+
+const paginateResults = ({
+  pagination,
+  endpoint,
+}: {
+  pagination: { page: number; pageSize: number }
+  endpoint: string
+}) => {
+  const pages = qs.stringify(
+    {
+      pagination,
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  )
+  return appendToEndpoint(endpoint, pages)
+}
+
+const appendToEndpoint = (endpoint: string, data: string) => {
   endpoint.indexOf("?") === -1
-    ? (endpoint += `?${fieldsToShow}`)
-    : (endpoint += `&${fieldsToShow}`)
+    ? (endpoint += `?${data}`)
+    : (endpoint += `&${data}`)
   return endpoint
 }
 
@@ -44,6 +66,12 @@ export const get = (
 ) => {
   if (optionalParameters?.fieldsToFetch) {
     endpoint = fetchSpecifiedFields(optionalParameters.fieldsToFetch, endpoint)
+  }
+  if (optionalParameters?.pagination) {
+    endpoint = paginateResults({
+      pagination: optionalParameters.pagination,
+      endpoint,
+    })
   }
   return api.get(endpoint)
 }
