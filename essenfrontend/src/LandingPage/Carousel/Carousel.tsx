@@ -8,12 +8,15 @@ import styled from "@emotion/styled"
 import { Grid } from "@mui/material"
 import { useEffect, useState } from "react"
 import { get } from "../../httpManager/httpManager"
+import { Image } from "../../httpManager/model"
 
 type Header = {
   id: string
   attributes: {
     title: string
-    image: string
+    image: {
+      data: Image
+    }
     description: string
     url: string
   }
@@ -42,18 +45,31 @@ export const Carousel = () => {
           navigation
           loop={headers.length > 1}
         >
-          {headers.map((header) => {
-            console.log(header)
-            return (
-              <SwiperSlide key={header.id}>
-                <CarouselItem
-                  title={header.attributes.title}
-                  description={header.attributes.description}
-                  url={header.attributes.url}
-                />
-              </SwiperSlide>
-            )
-          })}
+          {headers.length > 0 ? (
+            headers.map((header) => {
+              return (
+                <SwiperSlide key={header.id}>
+                  <CarouselItem
+                    title={header.attributes.title}
+                    description={header.attributes.description}
+                    url={header.attributes.url}
+                    image={header.attributes.image.data.attributes.url}
+                  />
+                </SwiperSlide>
+              )
+            })
+          ) : (
+            <SwiperSlide>
+              <CarouselItem
+                title={"Bienvenidos a Essendetudia"}
+                description={""}
+                url={""}
+                image={
+                  "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/12/509541.jpg"
+                }
+              />
+            </SwiperSlide>
+          )}
         </StyledSlider>
       </Grid>
       <Grid item md={2} xs={0}></Grid>

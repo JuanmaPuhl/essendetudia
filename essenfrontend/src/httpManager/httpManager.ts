@@ -49,5 +49,7 @@ export const get = (
 }
 
 export const getImageUrl = (imageUrl: string) => {
-  return `${REACT_APP_STRAPI_BASE_URL}${imageUrl}`
+  if (imageUrl.indexOf("https://") === -1)
+    return `${REACT_APP_STRAPI_BASE_URL}${imageUrl}`
+  return imageUrl
 }
