@@ -5,7 +5,7 @@ export const Subscribe = () => {
   return (
     <Box
       marginTop={"20px"}
-      sx={{ backgroundColor: "lightGray", paddingBottom: "30px" }}
+      sx={{ backgroundColor: "#F6F6F6", paddingBottom: "30px" }}
     >
       <Typography
         variant="h6"
