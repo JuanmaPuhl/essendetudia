@@ -20,8 +20,13 @@ export const FeaturedProducts = () => {
   }, [])
 
   return (
-    <Container>
-      <Grid container columns={12} marginTop="20px">
+    <>
+      <Grid
+        container
+        columns={12}
+        marginTop="20px"
+        sx={{ width: "60%", marginRight: "auto", marginLeft: "auto" }}
+      >
         <Grid item md={11}>
           <Typography variant="h5">Novedades</Typography>
         </Grid>
@@ -29,7 +34,13 @@ export const FeaturedProducts = () => {
           <Button>Ver todo</Button>
         </Grid>
       </Grid>
-      <Grid container spacing={1} columns={12} marginTop="5px">
+      <Grid
+        container
+        spacing={1}
+        columns={12}
+        marginTop="5px"
+        sx={{ width: "60%", marginRight: "auto", marginLeft: "auto" }}
+      >
         {products.map((product) => (
           <Grid key={product.id} item md={3} xs={12} sm={6}>
             <ProductCard
@@ -43,6 +54,6 @@ export const FeaturedProducts = () => {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </>
   )
 }
