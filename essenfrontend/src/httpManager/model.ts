@@ -22,3 +22,10 @@ export type Product = {
     }
   }
 }
+
+export type Filter = {
+  id: string
+  attributes: {
+    Description: string
+  }
+}

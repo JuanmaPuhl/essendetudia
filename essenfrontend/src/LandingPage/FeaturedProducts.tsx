@@ -1,4 +1,4 @@
-import { Container, Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import { Grid, Button } from "@mui/material"
 import { useEffect, useState } from "react"
 import { get, getImageUrl } from "../httpManager/httpManager"
