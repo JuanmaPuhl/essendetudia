@@ -1,4 +1,4 @@
-import { Carousel } from "./Carousel/Carousel"
+import { Carousel } from "../Components/Carousel/Carousel"
 import { FeaturedProducts } from "./FeaturedProducts"
 import { Subscribe } from "./Subscribe"
 

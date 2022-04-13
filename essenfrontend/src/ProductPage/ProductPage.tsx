@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { get } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
-import ProductCard from "../LandingPage/ProductCard"
+import ProductCard from "../Components/Products/ProductCard"
 
 export const ProductPage = () => {
   const { id } = useParams()

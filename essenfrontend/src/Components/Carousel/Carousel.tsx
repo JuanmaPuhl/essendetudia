@@ -8,19 +8,7 @@ import styled from "@emotion/styled"
 import { Grid } from "@mui/material"
 import { useEffect, useState } from "react"
 import { get } from "../../httpManager/httpManager"
-import { Image } from "../../httpManager/model"
-
-type Header = {
-  id: string
-  attributes: {
-    title: string
-    image: {
-      data: Image
-    }
-    description: string
-    url: string
-  }
-}
+import { Header, Image } from "../../httpManager/model"
 
 export const Carousel = () => {
   const [headers, setHeaders] = useState<Header[]>([])

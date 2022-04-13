@@ -3,7 +3,7 @@ import { Grid, Button } from "@mui/material"
 import { useEffect, useState } from "react"
 import { get, getImageUrl } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
-import ProductCard from "./ProductCard"
+import ProductCard from "../Components/Products/ProductCard"
 
 export const FeaturedProducts = () => {
   const [products, setProducts] = useState<Product[]>([])

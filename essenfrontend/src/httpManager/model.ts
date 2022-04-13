@@ -29,3 +29,15 @@ export type Filter = {
     Description: string
   }
 }
+
+export type Header = {
+  id: string
+  attributes: {
+    title: string
+    image: {
+      data: Image
+    }
+    description: string
+    url: string
+  }
+}

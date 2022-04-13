@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { get, getImageUrl } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
-import ProductCard from "../LandingPage/ProductCard"
+import ProductCard from "../Components/Products/ProductCard"
 import { FiltersList } from "./FiltersList"
 import { CustomPagination } from "./Pagination"
 
