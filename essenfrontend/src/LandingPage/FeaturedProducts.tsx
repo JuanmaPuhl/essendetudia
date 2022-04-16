@@ -44,6 +44,7 @@ export const FeaturedProducts = () => {
         {products.map((product) => (
           <Grid key={product.id} item md={3} xs={12} sm={6}>
             <ProductCard
+              id={product.id}
               key={product.id}
               title={product.attributes.Title}
               image={getImageUrl(

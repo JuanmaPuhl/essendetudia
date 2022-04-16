@@ -16,6 +16,7 @@ export const ProductPage = () => {
     <>
       {product && (
         <ProductCard
+          id={product.id}
           title={product.attributes.Title}
           shortDescription={product.attributes.ShortDescription}
           image={product.attributes.Images?.data[0].attributes.url}

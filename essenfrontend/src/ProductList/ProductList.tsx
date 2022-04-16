@@ -15,8 +15,6 @@ export const ProductList = () => {
   const search = useLocation().search
 
   useEffect(() => {
-    const page = new URLSearchParams(search).get("page")
-    // if (page) setSelectedPage(Number.parseInt(page))
     get("/products?populate=Images", {
       fieldsToFetch: ["Title", "ShortDescription"],
       pagination: {
@@ -31,6 +29,10 @@ export const ProductList = () => {
       setPages(totalPages)
     })
   }, [selectedPage])
+
+  const onChangePage = (event: React.ChangeEvent<unknown>, page: number) => {
+    setSelectedPage(page)
+  }
 
   return (
     <>
@@ -52,6 +54,7 @@ export const ProductList = () => {
               {products.map((product: Product) => (
                 <Grid item key={product.id} md={3} xs={12} sm={6}>
                   <ProductCard
+                    id={product.id}
                     key={product.id}
                     title={product.attributes.Title}
                     shortDescription={product.attributes.ShortDescription}
@@ -65,10 +68,7 @@ export const ProductList = () => {
             <CustomPagination
               page={selectedPage}
               cantPages={pages}
-              changePage={(event: React.ChangeEvent<unknown>, page: number) => {
-                // window.location.href = `http://${window.location.host}/products?page=${page}`
-                setSelectedPage(page)
-              }}
+              changePage={onChangePage}
             />
           </Grid>
         </Grid>

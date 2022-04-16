@@ -5,10 +5,12 @@ import { Typography } from "@material-ui/core"
 import { Button, CardActionArea, CardActions } from "@mui/material"
 
 export default function ProductCard({
+  id,
   title,
   shortDescription,
   image,
 }: {
+  id: string
   title: string
   shortDescription: string
   image: string
@@ -30,11 +32,16 @@ export default function ProductCard({
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2">{shortDescription}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            window.location.href = `http://${window.location.host}/products/${id}`
+          }}
+        >
           Mas informacion
         </Button>
       </CardActions>
