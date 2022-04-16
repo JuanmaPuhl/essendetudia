@@ -8,7 +8,7 @@ export const ProductPage = () => {
   const { id } = useParams()
   const [product, setProduct] = useState<Product>()
   useEffect(() => {
-    get(`/products/${id}`).then((result : any) => {
+    get(`/products/${id}`).then((result: any) => {
       if (result.data.data) setProduct(result.data.data)
     })
   }, [id])
