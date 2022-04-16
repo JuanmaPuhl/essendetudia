@@ -23,10 +23,18 @@ export const Footer = () => {
 
       <Grid item>
         <Box>
-          <Typography component={"a"} href="#" color={"textPrimary"}>
+          <Typography
+            component={"a"}
+            href="https://www.facebook.com/essenpaulita"
+            color={"textPrimary"}
+          >
             <FacebookIcon />
           </Typography>
-          <Typography component={"a"} href="#" color={"textPrimary"}>
+          <Typography
+            component={"a"}
+            href="https://www.instagram.com/essendetudia/"
+            color={"textPrimary"}
+          >
             <InstagramIcon />
           </Typography>
         </Box>
@@ -40,7 +48,7 @@ export const Footer = () => {
         }}
       >
         <Typography>
-          2022 © Todos los derechos reservados. Disenado por &nbsp;
+          2022 © Todos los derechos reservados. Diseñado por &nbsp;
           <Typography
             component={"a"}
             color={"textPrimary"}
