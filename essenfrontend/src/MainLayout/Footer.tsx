@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material"
+import { Box, Grid, IconButton } from "@mui/material"
 import { Typography } from "@material-ui/core"
 
 import FacebookIcon from "@mui/icons-material/Facebook"
@@ -9,34 +9,27 @@ export const Footer = () => {
       container
       direction={"column"}
       sx={{
-        backgroundColor: "#afdbda",
+        backgroundColor: "#439d98",
         maxWidth: "100%",
-        marginTop: 10,
         alignContent: "center",
         justifyContent: "center",
         textAlign: "center",
       }}
     >
       <Grid item>
-        <Typography variant="h6">Seguime en mis redes sociales</Typography>
+        <Typography color="textSecondary" variant="h6">
+          Seguime en mis redes sociales
+        </Typography>
       </Grid>
 
       <Grid item>
         <Box>
-          <Typography
-            component={"a"}
-            href="https://www.facebook.com/essenpaulita"
-            color={"textPrimary"}
-          >
-            <FacebookIcon />
-          </Typography>
-          <Typography
-            component={"a"}
-            href="https://www.instagram.com/essendetudia/"
-            color={"textPrimary"}
-          >
-            <InstagramIcon />
-          </Typography>
+          <IconButton href="https://www.facebook.com/essenpaulita">
+            <FacebookIcon fontSize="large" sx={{ color: "#006CB9" }} />
+          </IconButton>
+          <IconButton href="https://www.instagram.com/essendetudia/">
+            <InstagramIcon fontSize="large" sx={{ color: "#006CB9" }} />
+          </IconButton>
         </Box>
       </Grid>
 
@@ -47,11 +40,11 @@ export const Footer = () => {
           marginBottom: 2,
         }}
       >
-        <Typography>
+        <Typography color="textSecondary">
           2022 © Todos los derechos reservados. Diseñado por &nbsp;
           <Typography
             component={"a"}
-            color={"textPrimary"}
+            color="textSecondary"
             href="https://www.juanmanuelpuhl.com.ar"
             style={{ textDecoration: "none" }}
           >

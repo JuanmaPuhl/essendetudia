@@ -1,7 +1,9 @@
-import { Typography } from "@material-ui/core"
+import { Typography, useTheme } from "@material-ui/core"
 import { Box, Button, Grid, TextField } from "@mui/material"
 
 export const Subscribe = () => {
+  const theme = useTheme()
+
   return (
     <Box
       marginTop={"20px"}
@@ -36,7 +38,14 @@ export const Subscribe = () => {
         <Grid item md={1} sx={{ height: "50px" }}>
           <Button
             variant="contained"
-            sx={{ height: "55px", verticalAlign: "middle" }}
+            sx={{
+              height: "55px",
+              verticalAlign: "middle",
+              backgroundColor: theme.palette.primary.main,
+              ":hover": {
+                backgroundColor: theme.palette.primary.dark,
+              },
+            }}
           >
             Suscribirme
           </Button>

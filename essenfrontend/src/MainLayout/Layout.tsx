@@ -1,15 +1,9 @@
-import styled from "@emotion/styled"
-import { createTheme, ThemeProvider } from "@material-ui/core/styles"
+import { ThemeProvider } from "@material-ui/core/styles"
 import { ReactChild, ReactFragment, ReactPortal } from "react"
+import { theme } from "../Theme/theme"
 import { Footer } from "./Footer"
 import ResponsiveAppBar from "./Navbar"
 import { WhatsappButton } from "./WhatsappButton"
-
-const theme = createTheme({
-  typography: {
-    fontFamily: ["Montserrat", "Grape nuts"].join(","),
-  },
-})
 
 export const Layout = (props: {
   children:
@@ -23,7 +17,14 @@ export const Layout = (props: {
   return (
     <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
-      <div id="content">{props.children}</div>
+      <div
+        id="content"
+        style={{
+          backgroundColor: theme.palette.background.default,
+        }}
+      >
+        {props.children}
+      </div>
       <Footer />
       <WhatsappButton />
     </ThemeProvider>

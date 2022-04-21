@@ -28,7 +28,7 @@ export const ProductPage = () => {
       <Grid
         container
         justifyContent={"center"}
-        marginTop="30px"
+        paddingTop="30px"
         minHeight="500px"
       >
         <Grid item md={4} sx={{ backgroundColor: "#F6F6F6" }}>
