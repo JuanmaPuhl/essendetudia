@@ -1,3 +1,4 @@
+import styled from "@emotion/styled"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
 import { ReactChild, ReactFragment, ReactPortal } from "react"
 import { Footer } from "./Footer"
@@ -22,7 +23,7 @@ export const Layout = (props: {
   return (
     <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
-      {props.children}
+      <div id="content">{props.children}</div>
       <Footer />
       <WhatsappButton />
     </ThemeProvider>

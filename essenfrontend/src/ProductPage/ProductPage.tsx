@@ -25,7 +25,12 @@ export const ProductPage = () => {
           image={product.attributes.Images?.data[0].attributes.url}
         />
       )} */}
-      <Grid container justifyContent={"center"} marginTop="30px">
+      <Grid
+        container
+        justifyContent={"center"}
+        marginTop="30px"
+        minHeight="500px"
+      >
         <Grid item md={4} sx={{ backgroundColor: "#F6F6F6" }}>
           Hola
         </Grid>
