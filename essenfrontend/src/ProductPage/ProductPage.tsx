@@ -35,14 +35,14 @@ export const ProductPage = () => {
             paddingTop="30px"
             minHeight="500px"
           >
-            <Grid item md={4} sx={{ backgroundColor: "#F6F6F6" }}>
+            <Grid item md={4} xs={12} sx={{ backgroundColor: "#F6F6F6" }}>
               <SelectedImage
                 url={getImageUrl(
                   product.attributes.Images?.data[0].attributes.url || "",
                 )}
               />
             </Grid>
-            <Grid item md={6} sx={{}}>
+            <Grid item md={6} xs={12} sx={{}}>
               <h2>{product?.attributes.Title}</h2>
               <p>{product?.attributes.ShortDescription}</p>
               <Button>Me interesa</Button>
