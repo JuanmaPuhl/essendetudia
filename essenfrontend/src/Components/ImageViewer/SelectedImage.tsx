@@ -2,15 +2,22 @@ import { useCallback, useState } from "react"
 import ImgsViewer from "react-images-viewer"
 import Image from "material-ui-image"
 
-export const SelectedImage = ({ url }: { url: string }) => {
-  const [currentImage, setCurrentImage] = useState(0)
+type ImagesUrls = {
+  src: string
+}
+
+export const SelectedImage = ({
+  urls,
+  curImg,
+  changeImage,
+}: {
+  urls: ImagesUrls[]
+  curImg: number
+  changeImage: (index: number) => void
+}) => {
+  const [currentImage, setCurrentImage] = useState(curImg)
   const [isViewerOpen, setIsViewerOpen] = useState(false)
-  const images = [
-    { src: url },
-    { src: "http://placeimg.com/1200/800/nature" },
-    { src: "http://placeimg.com/1200/800/nature" },
-    { src: "http://placeimg.com/1200/800/nature" },
-  ]
+  const images = urls
 
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index)
@@ -32,16 +39,28 @@ export const SelectedImage = ({ url }: { url: string }) => {
         onClose={() => {
           closeImageViewer()
         }}
-      ></ImgsViewer>
+        onClickThumbnail={(index: number) => {
+          changeImage(index)
+          setCurrentImage(index)
+        }}
+        onClickPrev={() => {
+          changeImage(currentImage - 1)
+          setCurrentImage(currentImage - 1)
+        }}
+        onClickNext={() => {
+          changeImage(currentImage + 1)
+          setCurrentImage(currentImage + 1)
+        }}
+      />
       <Image
-        cover
         aspectRatio={16 / 9}
-        alt="Holi"
-        src={url}
+        width="100%"
+        height="100%"
+        src={urls[curImg].src}
         onClick={() => {
           openImageViewer(0)
         }}
-      ></Image>
+      />
     </>
   )
 }

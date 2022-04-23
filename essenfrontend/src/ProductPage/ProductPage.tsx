@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { get, getImageUrl } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
-import ProductCard from "../Components/Products/ProductCard"
 import { Grid } from "@mui/material"
 import { Button } from "@mui/material"
 import { Share } from "../Components/Share"
 import { SelectedImage } from "../Components/ImageViewer/SelectedImage"
+import { ImageViewer } from "../Components/ImageViewer/ImageViewer"
 
 export const ProductPage = () => {
   const { id } = useParams()
@@ -19,14 +19,6 @@ export const ProductPage = () => {
   }, [id])
   return (
     <>
-      {/* {product && (
-        <ProductCard
-          id={product.id}
-          title={product.attributes.Title}
-          shortDescription={product.attributes.ShortDescription}
-          image={product.attributes.Images?.data[0].attributes.url}
-        />
-      )} */}
       {product && (
         <>
           <Grid
@@ -35,12 +27,8 @@ export const ProductPage = () => {
             paddingTop="30px"
             minHeight="500px"
           >
-            <Grid item md={4} xs={12} sx={{ backgroundColor: "#F6F6F6" }}>
-              <SelectedImage
-                url={getImageUrl(
-                  product.attributes.Images?.data[0].attributes.url || "",
-                )}
-              />
+            <Grid item md={4} xs={12}>
+              <ImageViewer />
             </Grid>
             <Grid item md={6} xs={12} sx={{}}>
               <h2>{product?.attributes.Title}</h2>
@@ -48,7 +36,7 @@ export const ProductPage = () => {
               <Button>Me interesa</Button>
             </Grid>
           </Grid>
-          <Share urlToShare={`http://${window.location.host}/products/${id}`} />
+          <Share urlToShare={`${window.location.href}`} />
         </>
       )}
     </>

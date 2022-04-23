@@ -1,9 +1,11 @@
 import { Box, Grid, IconButton } from "@mui/material"
-import { Typography } from "@material-ui/core"
+import { Typography, useTheme } from "@material-ui/core"
 
 import FacebookIcon from "@mui/icons-material/Facebook"
 import InstagramIcon from "@mui/icons-material/Instagram"
 export const Footer = () => {
+  const theme = useTheme()
+
   return (
     <Grid
       container
@@ -24,11 +26,23 @@ export const Footer = () => {
 
       <Grid item>
         <Box>
-          <IconButton href="https://www.facebook.com/essenpaulita">
-            <FacebookIcon fontSize="large" sx={{ color: "#006CB9" }} />
+          <IconButton
+            href="https://www.facebook.com/essenpaulita"
+            target="_blank"
+          >
+            <FacebookIcon
+              fontSize="large"
+              sx={{ color: theme.palette.text.secondary }}
+            />
           </IconButton>
-          <IconButton href="https://www.instagram.com/essendetudia/">
-            <InstagramIcon fontSize="large" sx={{ color: "#006CB9" }} />
+          <IconButton
+            href="https://www.instagram.com/essendetudia/"
+            target="_blank"
+          >
+            <InstagramIcon
+              fontSize="large"
+              sx={{ color: theme.palette.text.secondary }}
+            />
           </IconButton>
         </Box>
       </Grid>

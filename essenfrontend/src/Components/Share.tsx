@@ -6,11 +6,14 @@ import { copyTextToClipboard } from "../Clipboard/clipboard"
 export const Share = ({ urlToShare }: { urlToShare: string }) => {
   return (
     <Grid container direction="column">
+      <Grid item sx={{ marginLeft: "auto", marginRight: "auto" }}>
+        <h3>Compartir</h3>
+      </Grid>
       <Grid
         container
         direction={"row"}
         justifyContent="center"
-        marginTop="10px"
+        marginBottom={"20px"}
       >
         <Grid
           item
@@ -64,9 +67,6 @@ export const Share = ({ urlToShare }: { urlToShare: string }) => {
         >
           <hr></hr>
         </Grid>
-      </Grid>
-      <Grid item sx={{ marginLeft: "auto", marginRight: "auto" }}>
-        <h3>Compartir</h3>
       </Grid>
     </Grid>
   )
