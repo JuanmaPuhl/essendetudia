@@ -14,7 +14,7 @@ export const ResponsiveImage = ({
         maxWidth: "100%",
         height: "300px",
         maxHeight: "300px",
-        backgroundSize: "contain",
+        objectFit: "contain",
       }}
     />
   )
