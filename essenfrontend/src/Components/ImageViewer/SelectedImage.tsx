@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react"
 import ImgsViewer from "react-images-viewer"
 import Image from "material-ui-image"
+import { ResponsiveImage } from "../ResponsiveImage/ResponsiveImage"
 
 type ImagesUrls = {
   src: string
@@ -30,7 +31,13 @@ export const SelectedImage = ({
   }
 
   return (
-    <>
+    <div
+      style={{
+        cursor: "zoom-in",
+        justifyContent: "center",
+        display: "flex",
+      }}
+    >
       <ImgsViewer
         imgs={images}
         showThumbnails={true}
@@ -52,16 +59,12 @@ export const SelectedImage = ({
           setCurrentImage(currentImage + 1)
         }}
       />
-      <Image
-        aspectRatio={16 / 9}
-        cover
-        width="100%"
-        height="100%"
+      <ResponsiveImage
         src={urls[curImg].src}
         onClick={() => {
           openImageViewer(curImg)
         }}
       />
-    </>
+    </div>
   )
 }

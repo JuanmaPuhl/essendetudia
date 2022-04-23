@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Container from "@mui/material/Container"
 import Button from "@mui/material/Button"
 import MenuItem from "@mui/material/MenuItem"
+import { useTheme } from "@material-ui/core"
 
 const pages = [
   { title: "Inicio", url: "/" },
@@ -27,8 +28,13 @@ const ResponsiveAppBar = () => {
     setAnchorElNav(null)
   }
 
+  const theme = useTheme()
+
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: theme.palette.primary.main }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

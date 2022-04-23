@@ -32,7 +32,10 @@ export const Share = ({ urlToShare }: { urlToShare: string }) => {
             sx={{ verticalAlign: "middle" }}
           >
             <Grid item md={3} textAlign={"center"} sx={{}}>
-              <IconButton>
+              <IconButton
+                href={`http://www.facebook.com/sharer.php?u=${urlToShare}`}
+                target="_blank"
+              >
                 <FacebookIcon fontSize="large" sx={{ color: "#006CB9" }} />
               </IconButton>
             </Grid>

@@ -7,6 +7,7 @@ export const ImageViewerItem = ({ url }: { url: string }) => {
         border: "1px solid #555555",
         height: "100%",
         marginBottom: "1px",
+        cursor: "pointer",
       }}
     >
       <Image cover aspectRatio={16 / 9} src={url}></Image>
