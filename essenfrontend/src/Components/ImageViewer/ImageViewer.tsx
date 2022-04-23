@@ -17,8 +17,8 @@ export const ImageViewer = ({ images }: { images: string[] }) => {
     >
       <div
         style={{
-          backgroundColor: "yellow",
           width: "100%",
+          marginBottom: "10px",
           flex: 1,
         }}
       >

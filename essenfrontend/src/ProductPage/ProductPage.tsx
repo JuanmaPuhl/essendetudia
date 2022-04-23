@@ -6,7 +6,7 @@ import { Grid } from "@mui/material"
 import { Button } from "@mui/material"
 import { Share } from "../Components/Share"
 import { ImageViewer } from "../Components/ImageViewer/ImageViewer"
-import ReactMarkdown from "react-markdown"
+import { MarkdownViewer } from "../Components/MarkdownViewer/MarkdownViewer"
 
 export const ProductPage = () => {
   const { id } = useParams()
@@ -17,6 +17,7 @@ export const ProductPage = () => {
       console.log(result)
     })
   }, [id])
+
   return (
     <>
       {product && (
@@ -28,18 +29,21 @@ export const ProductPage = () => {
             minHeight="500px"
           >
             <Grid item md={4} xs={12}>
-              <ImageViewer
-                images={product.attributes.Images.data.map((image) => {
-                  return getImageUrl(image.attributes.url)
-                })}
-              />
+              <div>
+                <ImageViewer
+                  images={product.attributes.Images.data.map((image) => {
+                    return getImageUrl(image.attributes.url)
+                  })}
+                />
+              </div>
             </Grid>
             <Grid item md={6} xs={12} sx={{}}>
-              <h2>{product?.attributes.Title}</h2>
-              <ReactMarkdown>
-                {product?.attributes.LongDescription}
-              </ReactMarkdown>
-
+              <div>
+                <h2>{product?.attributes.Title}</h2>
+                <MarkdownViewer
+                  markdownText={product?.attributes.LongDescription}
+                />
+              </div>
               <Button>Me interesa</Button>
             </Grid>
           </Grid>
