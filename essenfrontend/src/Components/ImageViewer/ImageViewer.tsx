@@ -4,12 +4,7 @@ import { SelectedImage } from "./SelectedImage"
 import { ImageViewerItem } from "./ImageViewerItem"
 import { useState } from "react"
 
-export const ImageViewer = () => {
-  const images = [
-    "https://http2.mlstatic.com/D_NQ_NP_778966-MLA49552399028_042022-W.jpg",
-    "https://ollasessen.com.ar/wp-content/uploads/2020/09/wok-essen-2-scaled.jpg",
-  ]
-
+export const ImageViewer = ({ images }: { images: string[] }) => {
   const [currentImage, setCurrentImage] = useState(0)
 
   return (

@@ -5,8 +5,8 @@ import { Product } from "../httpManager/model"
 import { Grid } from "@mui/material"
 import { Button } from "@mui/material"
 import { Share } from "../Components/Share"
-import { SelectedImage } from "../Components/ImageViewer/SelectedImage"
 import { ImageViewer } from "../Components/ImageViewer/ImageViewer"
+import ReactMarkdown from "react-markdown"
 
 export const ProductPage = () => {
   const { id } = useParams()
@@ -28,11 +28,18 @@ export const ProductPage = () => {
             minHeight="500px"
           >
             <Grid item md={4} xs={12}>
-              <ImageViewer />
+              <ImageViewer
+                images={product.attributes.Images.data.map((image) => {
+                  return getImageUrl(image.attributes.url)
+                })}
+              />
             </Grid>
             <Grid item md={6} xs={12} sx={{}}>
               <h2>{product?.attributes.Title}</h2>
-              <p>{product?.attributes.ShortDescription}</p>
+              <ReactMarkdown>
+                {product?.attributes.LongDescription}
+              </ReactMarkdown>
+
               <Button>Me interesa</Button>
             </Grid>
           </Grid>

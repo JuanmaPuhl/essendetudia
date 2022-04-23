@@ -54,11 +54,12 @@ export const SelectedImage = ({
       />
       <Image
         aspectRatio={16 / 9}
+        cover
         width="100%"
         height="100%"
         src={urls[curImg].src}
         onClick={() => {
-          openImageViewer(0)
+          openImageViewer(curImg)
         }}
       />
     </>
