@@ -14,6 +14,7 @@ import { useTheme } from "@material-ui/core"
 const pages = [
   { title: "Inicio", url: "/" },
   { title: "Productos", url: "products" },
+  { title: "Recetas", url: "recipes" },
   { title: "Contacto", url: "contact" },
 ]
 
