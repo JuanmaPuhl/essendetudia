@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { get, getImageUrl } from "../httpManager/httpManager"
 import { Product } from "../httpManager/model"
@@ -10,16 +10,26 @@ import { MarkdownViewer } from "../Components/MarkdownViewer/MarkdownViewer"
 import { isMobile } from "react-device-detect"
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
 import { useTheme } from "@material-ui/core"
+import { context } from "../MainLayout/Layout"
 
 export const ProductPage = () => {
   const { id } = useParams()
   const [product, setProduct] = useState<Product>()
+  const { footerStyle, setFooterStyle } = useContext(context)
+
   useEffect(() => {
     get(`/products/${id}?populate=Images`).then((result: any) => {
       if (result.data.data) {
         setProduct(result.data.data)
-        console.log(result)
         document.title = result.data.data.attributes.Title
+
+        const pageHeight = document.body.clientHeight
+        setFooterStyle({
+          ...footerStyle,
+          position: pageHeight > window.innerHeight ? "relative" : "absolute",
+          bottom: pageHeight > window.innerHeight ? "auto" : 0,
+          width: "100%",
+        })
       }
     })
   }, [id])

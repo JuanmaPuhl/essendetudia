@@ -37,8 +37,8 @@ export const ImageViewer = ({ images }: { images: string[] }) => {
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={4}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => {}}
+          onSwiper={(swiper) => {}}
           navigation
           centerInsufficientSlides
           spaceBetween={5}
