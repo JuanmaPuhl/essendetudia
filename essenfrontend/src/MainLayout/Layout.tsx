@@ -4,7 +4,6 @@ import {
   ReactChild,
   ReactFragment,
   ReactPortal,
-  useEffect,
   useState,
 } from "react"
 import { theme } from "../Theme/theme"
@@ -15,7 +14,6 @@ import { WhatsappButton } from "./WhatsappButton"
 export const context = createContext({
   footerStyle: {},
   setFooterStyle: (value: any) => {},
-  pageHeight: 0,
 })
 
 export const Layout = (props: {
@@ -28,11 +26,6 @@ export const Layout = (props: {
     | undefined
 }) => {
   const [footerStyle, setFooterStyle] = useState({})
-  const [pageHeight, setPageHeight] = useState(0)
-
-  useEffect(() => {
-    setPageHeight(document.body.clientHeight)
-  })
 
   return (
     <context.Provider
@@ -41,7 +34,6 @@ export const Layout = (props: {
         setFooterStyle: (value) => {
           setFooterStyle(value)
         },
-        pageHeight,
       }}
     >
       <ThemeProvider theme={theme}>
