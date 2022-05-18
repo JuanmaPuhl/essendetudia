@@ -15,7 +15,7 @@ export const FeaturedProducts = () => {
         pageSize: 8,
       },
     }).then((result) => {
-      setProducts(result.data.data)
+      setProducts(result?.data.data)
     })
   }, [])
 

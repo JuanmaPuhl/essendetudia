@@ -22,6 +22,15 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
     resolve(config)
   })
 })
+api.interceptors.response.use(
+  (response) => {
+    console.log("dale", response)
+    return response
+  },
+  (error) => {
+    console.log("error", error)
+  },
+)
 
 const fetchSpecifiedFields = (fields: string[], endpoint: string) => {
   const fieldsToShow = qs.stringify(

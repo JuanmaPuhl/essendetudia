@@ -22,9 +22,9 @@ export const ProductList = () => {
         pageSize: 12,
       },
     }).then((result) => {
-      setProducts(result.data.data)
+      setProducts(result?.data.data)
       console.log(result)
-      const totalProducts = result.data.meta.pagination.total
+      const totalProducts = result?.data.meta.pagination.total
       const totalPages = Math.ceil(totalProducts / 12)
       setPages(totalPages)
     })

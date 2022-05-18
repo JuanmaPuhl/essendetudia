@@ -8,8 +8,8 @@ export const FiltersList = () => {
 
   useEffect(() => {
     get("/types").then((result) => {
-      setFilters(result.data.data)
-      console.log(result.data.data)
+      setFilters(result?.data.data)
+      console.log(result?.data.data)
       console.log(filters)
     })
   }, [])

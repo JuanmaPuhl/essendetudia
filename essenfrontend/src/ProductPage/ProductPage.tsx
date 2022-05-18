@@ -19,7 +19,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     get(`/products/${id}?populate=Images`).then((result: any) => {
-      if (result.data.data) {
+      if (result?.data.data) {
         setProduct(result.data.data)
         document.title = result.data.data.attributes.Title
 
