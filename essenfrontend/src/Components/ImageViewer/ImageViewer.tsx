@@ -3,7 +3,6 @@ import { Navigation, Pagination } from "swiper"
 import { SelectedImage } from "./SelectedImage"
 import { ImageViewerItem } from "./ImageViewerItem"
 import { useState } from "react"
-import { isMobile } from "react-device-detect"
 
 export const ImageViewer = ({ images }: { images: string[] }) => {
   const [currentImage, setCurrentImage] = useState(0)

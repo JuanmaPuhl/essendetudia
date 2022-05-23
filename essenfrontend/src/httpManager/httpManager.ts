@@ -17,6 +17,7 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
   return new Promise((resolve) => {
     config.headers = {
       ...config.headers,
+      "access-control-allow-origin": "*",
       Authorization: `Bearer ${REACT_APP_STRAPI_TOKEN}`,
     }
     resolve(config)

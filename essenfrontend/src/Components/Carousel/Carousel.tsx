@@ -16,6 +16,7 @@ export const Carousel = () => {
     get("/headers?populate=image", {
       fieldsToFetch: ["title", "description", "url"],
     }).then((result) => {
+      console.log(result)
       setHeaders(result?.data.data)
       console.log(headers)
     })
