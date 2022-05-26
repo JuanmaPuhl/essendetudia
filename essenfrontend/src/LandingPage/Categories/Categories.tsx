@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core"
 import { Box, Button, Container, Grid } from "@mui/material"
-
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation, Pagination } from "swiper"
 const Category = ({
   imgUrl,
   text,
@@ -82,80 +83,30 @@ export const Categories = () => {
         </Grid>
       </Grid>
 
-      {/* <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr",
-          height: "auto",
-          position: "relative",
-          marginTop: "20px",
-          borderRadius: "10px",
+      <Swiper
+        modules={[Navigation, Pagination]}
+        slidesPerView={4}
+        onSlideChange={() => {}}
+        onSwiper={() => {}}
+        navigation
+        centerInsufficientSlides
+        spaceBetween={5}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          600: {
+            slidesPerView: 2,
+          },
+          900: {
+            slidesPerView: 3,
+          },
+          1200: {
+            slidesPerView: 4,
+          },
         }}
       >
-        <div
-          style={{
-            gridRow: "span 2",
-            position: "relative",
-            height: "600px",
-          }}
-        >
-          <Category
-            text="Linea Aqua"
-            imgUrl="https://www.essen.com.ar/imgs/w510-h400-c510.400/contenido/objetos/1/Conteporanea.jpg"
-            height="100%"
-          />
-        </div>
-        <div
-          style={{
-            gridColumn: "span 2",
-            position: "relative",
-            height: "300px",
-            padding: "0",
-            margin: "0",
-          }}
-        >
-          <Category
-            text="Linea Terra"
-            imgUrl="https://www.essen.com.ar/imgs/w510-h400-c510.400/contenido/objetos/1/Terra.jpg"
-            width="100%"
-            maxHeight="100%"
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            gridColumn: "span 2",
-            height: "300px",
-            width: "100%",
-            backgroundColor: "red",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              height: "100%",
-              backgroundColor: "pink",
-              flex: 1,
-            }}
-          >
-            <Category
-              text="Linea Marsala"
-              imgUrl="https://www.essen.com.ar/imgs/w510-h400-c510.400/contenido/objetos/1/ClasicaMarsala.jpg"
-              height="100%"
-            />
-          </div>
-          <div style={{ position: "relative", flex: 1 }}>
-            <Category
-              text="Complementos"
-              imgUrl="https://www.essen.com.ar/imgs/w510-h400-c510.400/contenido/objetos/1/portadacomplementos.jpg"
-              height="100%"
-            />
-          </div>
-        </div>
-      </div> */}
-      <Grid container columns={4} columnSpacing={2}>
-        <Grid item md={1}>
+        <SwiperSlide onClick={() => {}}>
           <div
             style={{
               position: "relative",
@@ -168,8 +119,8 @@ export const Categories = () => {
               height="100%"
             />
           </div>
-        </Grid>
-        <Grid item md={1}>
+        </SwiperSlide>
+        <SwiperSlide onClick={() => {}}>
           <div
             style={{
               gridRow: "span 2",
@@ -183,8 +134,8 @@ export const Categories = () => {
               height="100%"
             />
           </div>
-        </Grid>
-        <Grid item md={1}>
+        </SwiperSlide>
+        <SwiperSlide onClick={() => {}}>
           <div
             style={{
               gridRow: "span 2",
@@ -198,8 +149,8 @@ export const Categories = () => {
               height="100%"
             />
           </div>
-        </Grid>
-        <Grid item md={1}>
+        </SwiperSlide>
+        <SwiperSlide onClick={() => {}}>
           <div
             style={{
               gridRow: "span 2",
@@ -213,8 +164,8 @@ export const Categories = () => {
               height="100%"
             />
           </div>
-        </Grid>
-      </Grid>
+        </SwiperSlide>
+      </Swiper>
     </Container>
   )
 }

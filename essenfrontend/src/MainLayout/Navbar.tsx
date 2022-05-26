@@ -33,8 +33,13 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar
-      position="static"
-      sx={{ backgroundColor: theme.palette.primary.main }}
+      position="absolute"
+      sx={{
+        // backgroundColor: "#FFFFFF1E",
+        backgroundColor: "#00000000",
+        boxShadow: "none",
+        color: "black",
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -105,7 +110,7 @@ const ResponsiveAppBar = () => {
                   handleCloseNavMenu()
                   window.location.href = page.url
                 }}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page.title}
               </Button>

@@ -82,6 +82,9 @@ export default function ProductCard({
           {title}
         </Box>
         <Button
+          onClick={() => {
+            window.location.href = `http://${window.location.host}/products/${id}`
+          }}
           endIcon={<ArrowForwardIosIcon />}
           sx={{
             textTransform: "none",
