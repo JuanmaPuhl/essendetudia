@@ -2,6 +2,7 @@ import { Typography } from "@material-ui/core"
 import { Box, Button, Container, Grid } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper"
+import { isMobile } from "../../Theme/theme"
 const Category = ({
   imgUrl,
   text,
@@ -54,9 +55,9 @@ const Category = ({
       <img
         src={imgUrl}
         style={{
-          height: height ?? "auto",
+          height: isMobile() ? "auto" : height ?? "auto",
           maxWidth: maxWidth ?? "100%",
-          width: width ?? "auto",
+          width: isMobile() ? "100%" : width ?? "auto",
           maxHeight: maxHeight ?? "100%",
           objectFit: "cover",
           borderRadius: "10px",
@@ -110,7 +111,7 @@ export const Categories = () => {
           <div
             style={{
               position: "relative",
-              height: "600px",
+              height: isMobile() ? "200px" : "600px",
             }}
           >
             <Category
@@ -125,7 +126,7 @@ export const Categories = () => {
             style={{
               gridRow: "span 2",
               position: "relative",
-              height: "600px",
+              height: isMobile() ? "200px" : "600px",
             }}
           >
             <Category
@@ -140,7 +141,7 @@ export const Categories = () => {
             style={{
               gridRow: "span 2",
               position: "relative",
-              height: "600px",
+              height: isMobile() ? "200px" : "600px",
             }}
           >
             <Category
@@ -155,7 +156,7 @@ export const Categories = () => {
             style={{
               gridRow: "span 2",
               position: "relative",
-              height: "600px",
+              height: isMobile() ? "200px" : "600px",
             }}
           >
             <Category

@@ -2,6 +2,7 @@ import { Typography, useTheme } from "@material-ui/core"
 import { Button, Grid } from "@mui/material"
 import Image from "material-ui-image"
 import { getImageUrl } from "../../httpManager/httpManager"
+import { isMobile } from "../../Theme/theme"
 export const CarouselItem = ({
   title,
   description,
@@ -14,10 +15,15 @@ export const CarouselItem = ({
   image: string
 }) => {
   const theme = useTheme()
-  console.log(theme.palette.background.default)
+  const aspectRatio = isMobile() ? 1 : 16 / 9
   return (
-    <div style={{ maxHeight: "80vh", width: "100%" }}>
-      <Image cover aspectRatio={16 / 9} src={getImageUrl(image)} style={{}} />
+    <div style={{ maxHeight: "60vh", width: "100%" }}>
+      <Image
+        cover
+        aspectRatio={aspectRatio}
+        src={getImageUrl(image)}
+        style={{}}
+      />
     </div>
   )
 }

@@ -47,7 +47,7 @@ export const Subscribe = () => {
               },
             }}
           >
-            Suscribirme
+            <Typography variant="button">Suscribirme</Typography>
           </Button>
         </Grid>
       </Grid>

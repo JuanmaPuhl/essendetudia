@@ -23,46 +23,40 @@ export const Carousel = () => {
   }, [])
 
   return (
-    <Grid container>
-      <Grid item md={0} xs={0}></Grid>
-      <Grid item md={12} xs={12}>
-        <StyledSlider
-          modules={[Navigation, Pagination]}
-          slidesPerView={1}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          navigation
-          loop={headers.length > 1}
-        >
-          {headers.length > 0 ? (
-            headers.map((header) => {
-              return (
-                <SwiperSlide key={header.id}>
-                  <CarouselItem
-                    title={header.attributes.title}
-                    description={header.attributes.description}
-                    url={header.attributes.url}
-                    image={header.attributes.image.data.attributes.url}
-                  />
-                </SwiperSlide>
-              )
-            })
-          ) : (
-            <SwiperSlide>
+    <StyledSlider
+      modules={[Navigation, Pagination]}
+      slidesPerView={1}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+      navigation
+      loop={headers.length > 1}
+    >
+      {headers.length > 0 ? (
+        headers.map((header) => {
+          return (
+            <SwiperSlide key={header.id}>
               <CarouselItem
-                title={"Bienvenidos a Essendetudia"}
-                description={""}
-                url={""}
-                image={
-                  "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/12/509541.jpg"
-                }
+                title={header.attributes.title}
+                description={header.attributes.description}
+                url={header.attributes.url}
+                image={header.attributes.image.data.attributes.url}
               />
             </SwiperSlide>
-          )}
-        </StyledSlider>
-      </Grid>
-      <Grid item md={0} xs={0}></Grid>
-    </Grid>
+          )
+        })
+      ) : (
+        <SwiperSlide>
+          <CarouselItem
+            title={"Bienvenidos a Essendetudia"}
+            description={""}
+            url={""}
+            image={
+              "https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2020/12/509541.jpg"
+            }
+          />
+        </SwiperSlide>
+      )}
+    </StyledSlider>
   )
 }
 

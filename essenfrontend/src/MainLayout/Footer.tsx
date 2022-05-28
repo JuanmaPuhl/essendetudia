@@ -31,7 +31,7 @@ export const Footer = () => {
             target="_blank"
           >
             <FacebookIcon
-              fontSize="large"
+              fontSize="medium"
               sx={{ color: theme.palette.text.secondary }}
             />
           </IconButton>
@@ -40,7 +40,7 @@ export const Footer = () => {
             target="_blank"
           >
             <InstagramIcon
-              fontSize="large"
+              fontSize="medium"
               sx={{ color: theme.palette.text.secondary }}
             />
           </IconButton>
@@ -50,17 +50,17 @@ export const Footer = () => {
       <Grid
         item
         sx={{
-          marginTop: 2,
           marginBottom: 2,
         }}
       >
-        <Typography color="textSecondary">
+        <Typography color="textSecondary" variant="body2">
           2022 © Todos los derechos reservados. Diseñado por &nbsp;
           <Typography
             component={"a"}
             color="textSecondary"
             href="https://www.juanmanuelpuhl.com.ar"
             style={{ textDecoration: "none" }}
+            variant="body2"
           >
             Juan Manuel Puhl
           </Typography>
