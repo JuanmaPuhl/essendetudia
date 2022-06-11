@@ -4,7 +4,8 @@
   "info": {
     "singularName": "linea",
     "pluralName": "lineas",
-    "displayName": "Lineas"
+    "displayName": "Lineas",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,12 +15,6 @@
     "Title": {
       "type": "string",
       "maxLength": 40
-    },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "line"
     }
   }
 }

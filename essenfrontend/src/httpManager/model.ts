@@ -20,13 +20,21 @@ export type Product = {
     Images: {
       data: Image[]
     }
+    line: {
+      data: {
+        id: number
+        attributes: {
+          Title: string
+        }
+      }
+    }
   }
 }
 
 export type Filter = {
   id: string
   attributes: {
-    Description: string
+    Title: string
   }
 }
 

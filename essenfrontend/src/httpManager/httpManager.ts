@@ -11,6 +11,7 @@ declare type OptionalParameters = {
     page: number
     pageSize: number
   }
+  filters?: any
 }
 const api = axios.create({ baseURL: `${REACT_APP_STRAPI_BASE_URL}/api` })
 api.interceptors.request.use((config: AxiosRequestConfig) => {
@@ -42,6 +43,7 @@ const fetchSpecifiedFields = (fields: string[], endpoint: string) => {
       encodeValuesOnly: true,
     },
   )
+  console.log("fieldsToShow", fieldsToShow)
   return appendToEndpoint(endpoint, fieldsToShow)
 }
 
@@ -82,6 +84,14 @@ export const get = (
       pagination: optionalParameters.pagination,
       endpoint,
     })
+  }
+  if (optionalParameters?.filters) {
+    endpoint = appendToEndpoint(
+      endpoint,
+      qs.stringify(optionalParameters.filters, {
+        encodeValuesOnly: true,
+      }),
+    )
   }
   return api.get(endpoint)
 }

@@ -32,14 +32,18 @@
         "videos"
       ]
     },
-    "line": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::linea.linea",
-      "inversedBy": "products"
-    },
     "LongDescription": {
       "type": "richtext"
+    },
+    "line": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::linea.linea"
+    },
+    "types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type.type"
     }
   }
 }
