@@ -28,6 +28,14 @@ export type Product = {
         }
       }
     }
+    type: {
+      data: {
+        id: number
+        attributes: {
+          Title: string
+        }
+      }
+    }
   }
 }
 

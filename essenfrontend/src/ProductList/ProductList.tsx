@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core"
-import { Breadcrumbs, Grid, Link } from "@mui/material"
+import { Breadcrumbs, Chip, Grid, Link, Skeleton } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 import { get, getImageUrl } from "../httpManager/httpManager"
@@ -15,9 +15,11 @@ export const ProductList = () => {
   const [selectedPage, setSelectedPage] = useState<number>(1)
   const search = useLocation().search
   const [originalProductList, setOriginalProductList] = useState<Product[]>([])
+  const [loading, setLoading] = useState(false)
 
   const getProducts = (filters?: any) => {
-    get("/products?populate=Images,line", {
+    setLoading(true)
+    get("/products?populate=Images,line,type", {
       fieldsToFetch: ["Title", "ShortDescription"],
       filters,
       pagination: {
@@ -25,12 +27,14 @@ export const ProductList = () => {
         pageSize: 12,
       },
     }).then((result) => {
+      console.log("Respuesta")
       setProducts(result?.data.data)
       setOriginalProductList(result?.data.data)
       console.log(result)
       const totalProducts = result?.data.meta.pagination.total
       const totalPages = Math.ceil(totalProducts / 12)
       setPages(totalPages)
+      setLoading(false)
     })
   }
 
@@ -114,44 +118,117 @@ export const ProductList = () => {
           sx={{ backgroundColor: "#F6F6F6", textAlign: "center" }}
           rowSpacing={2}
         >
-          <Typography variant="h6">Lineas</Typography>
+          <Chip
+            label="Clickable Deletable"
+            variant="outlined"
+            onClick={handleClick}
+            onDelete={() => {}}
+          />
+          <Chip
+            label="Clickable Deletable"
+            variant="outlined"
+            onClick={handleClick}
+            onDelete={() => {}}
+          />
+          <Chip
+            label="Clickable Deletable"
+            variant="outlined"
+            onClick={handleClick}
+            onDelete={() => {}}
+          />
           <FiltersList
             variant="lineas"
-            id="lines"
+            displayName="Lineas"
+            id="line"
             filterProducts={originalProductList}
             setProducts={getProducts}
           />
-          <Typography variant="h6">Tipos</Typography>
           <FiltersList
+            displayName="Tipos"
             variant="types"
-            id="types"
+            id="type"
             filterProducts={originalProductList}
-            setProducts={setProducts}
+            setProducts={getProducts}
           />
         </Grid>
         <Grid item md={7} xs={12} sm={12} sx={{ zIndex: 1 }}>
           <Grid container direction={"column"}>
             <Grid container>
-              {products.map((product: Product) => (
-                <Grid
-                  item
-                  key={product.id}
-                  md={3}
-                  xs={12}
-                  sm={6}
-                  sx={{ padding: "5px" }}
-                >
-                  <ProductCard
-                    id={product.id}
+              {loading ? (
+                <>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                  <Grid item md={3} xs={12} sm={6} sx={{ padding: "5px" }}>
+                    <Skeleton
+                      variant="rectangular"
+                      height={mobile ? "200px" : "400px"}
+                    />
+                  </Grid>
+                </>
+              ) : products.length ? (
+                products.map((product: Product) => (
+                  <Grid
+                    item
                     key={product.id}
-                    title={product.attributes.Title}
-                    shortDescription={product.attributes.ShortDescription}
-                    image={getImageUrl(
-                      product.attributes.Images.data?.[0].attributes.url,
-                    )}
-                  />
-                </Grid>
-              ))}
+                    md={3}
+                    xs={12}
+                    sm={6}
+                    sx={{ padding: "5px" }}
+                  >
+                    <ProductCard
+                      id={product.id}
+                      key={product.id}
+                      title={product.attributes.Title}
+                      shortDescription={product.attributes.ShortDescription}
+                      image={getImageUrl(
+                        product.attributes.Images.data?.[0].attributes.url,
+                      )}
+                    />
+                  </Grid>
+                ))
+              ) : (
+                <></>
+              )}
             </Grid>
             <CustomPagination
               page={selectedPage}

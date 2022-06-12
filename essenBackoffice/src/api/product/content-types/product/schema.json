@@ -40,9 +40,9 @@
       "relation": "oneToOne",
       "target": "api::linea.linea"
     },
-    "types": {
+    "type": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::type.type"
     }
   }
