@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 04 01:24:58 2022
+# Make data base, printed on Sun Jun 26 16:57:01 2022
 
 # Variables
 
@@ -23,7 +23,7 @@ USERPROFILE = C:\Users\juanm
 # environment
 LOCALAPPDATA = C:\Users\juanm\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-b8ba1295-fa07-4d57-b3f8-b6c4d3ce0bbf-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8f046ca9-787f-4e4c-ac09-7e255396c172-sock
 # environment
 VSCODE_CWD = C:\Users\juanm\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +39,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_20044_LKVXCHLEIABVPLBS
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_7260_JPNFTTEMNTOUYUTA
 # environment
 FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
@@ -55,7 +55,7 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\juanm\AppData\Roaming\Code\CachedData\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = C:\Users\juanm\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 LANG = C
 # default
@@ -95,7 +95,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 20044
+VSCODE_PID = 7260
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -189,7 +189,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\juanm\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\1bdaa3dd525188496583ab6f739dbc6d-1.67.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\1bdaa3dd525188496583ab6f739dbc6d-1.68.1-main-sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -234,7 +234,8 @@ PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
 dev:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
-#  File has not been updated.
+#  Fi 
+le has not been updated.
 #  recipe to execute (from 'makefile', line 2):
 	cd essenBackoffice && npm install && start cmd /k  npm run develop
 	cd essenfrontend && npm install && start cmd /k  npm start 
@@ -255,8 +256,7 @@ makefile:
 #  File has been updated.
 #  Successfully updated.
 
-# files ha 
-sh-table stats:
+# files hash-table stats:
 # Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
@@ -270,6 +270,6 @@ sh-table stats:
 # strcache performance: lookups = 17 / hit rate = 29%
 # hash-table stats:
 # Load=12/8192=0%, Rehash=0, Collisions=0/17=0%
-# Finished Make data base on Sat Jun 04 01:24:58 2022
+# Finished Make data base on Sun Jun 26 16:57:01 2022
 
  

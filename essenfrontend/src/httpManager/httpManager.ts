@@ -26,7 +26,6 @@ api.interceptors.request.use((config: AxiosRequestConfig) => {
 })
 api.interceptors.response.use(
   (response) => {
-    console.log("dale", response)
     return response
   },
   (error) => {
@@ -96,7 +95,8 @@ export const get = (
   return api.get(endpoint)
 }
 
-export const getImageUrl = (imageUrl: string) => {
+export const getImageUrl = (imageUrl?: string) => {
+  if (!imageUrl) return ""
   if (imageUrl.indexOf("https://") === -1)
     return `${REACT_APP_STRAPI_BASE_URL}${imageUrl}`
   return imageUrl

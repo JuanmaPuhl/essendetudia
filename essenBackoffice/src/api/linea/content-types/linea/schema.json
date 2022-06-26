@@ -15,6 +15,13 @@
     "Title": {
       "type": "string",
       "maxLength": 40
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

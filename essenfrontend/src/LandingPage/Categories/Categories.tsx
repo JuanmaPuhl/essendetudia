@@ -3,6 +3,9 @@ import { Box, Button, Container, Grid } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper"
 import { isMobile } from "../../Theme/theme"
+import { useEffect, useState } from "react"
+import { get, getImageUrl } from "../../httpManager/httpManager"
+import { Category as CategoryType } from "../../httpManager/model"
 const Category = ({
   imgUrl,
   text,
@@ -68,6 +71,14 @@ const Category = ({
 }
 
 export const Categories = () => {
+  const [categories, setCategories] = useState<CategoryType[]>([])
+  useEffect(() => {
+    get("/lineas?populate=image").then((result) => {
+      console.log("El resultado de obtener las lineas es ", result)
+      setCategories(result?.data.data)
+    })
+  }, [])
+  const mobile = isMobile()
   return (
     <Container style={{ height: "auto", marginTop: "20px" }}>
       <Grid
@@ -107,11 +118,39 @@ export const Categories = () => {
           },
         }}
       >
-        <SwiperSlide onClick={() => {}}>
+        {categories.length > 0 &&
+          categories.map((category) => (
+            <SwiperSlide key={category.id} onClick={() => {}}>
+              <div
+                style={{
+                  position: "relative",
+                  height: mobile ? "200px" : "600px",
+                }}
+                onClick={() => {
+                  localStorage.setItem("category", category.attributes.Title)
+                  window.location.href = window.location.href + "products"
+                }}
+              >
+                <Category
+                  text={category.attributes.Title}
+                  imgUrl={getImageUrl(
+                    category.attributes.image.data?.attributes.url,
+                  )}
+                  // imgUrl="https://www.essen.com.ar/imgs/w510-h400-c510.400/contenido/objetos/1/Conteporanea.jpg"
+                  height="100%"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        {/* <SwiperSlide onClick={() => {}}>
           <div
             style={{
               position: "relative",
               height: isMobile() ? "200px" : "600px",
+            }}
+            onClick={() => {
+              localStorage.setItem("category", "Aqua")
+              //window.location.href = window.location.href + "products"
             }}
           >
             <Category
@@ -165,7 +204,7 @@ export const Categories = () => {
               height="100%"
             />
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </Container>
   )

@@ -11,6 +11,16 @@ export type Image = {
   }
 }
 
+export type Category = {
+  id: string
+  attributes: {
+    Title: string
+    image: {
+      data?: Image
+    }
+  }
+}
+
 export type Product = {
   id: string
   attributes: {
